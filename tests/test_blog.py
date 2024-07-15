@@ -1,6 +1,7 @@
 import unittest
 from app import create_app, db
 
+
 class BlogTestCase(unittest.TestCase):
     def setUp(self):
         self.app = create_app()
