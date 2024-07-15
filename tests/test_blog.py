@@ -6,7 +6,9 @@ class BlogTestCase(unittest.TestCase):
     def setUp(self):
         self.app = create_app()
         self.app.config["TESTING"] = True
-        self.app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///test.db"
+        self.app.config["SQLALCHEMY_DATABASE_URI"] = (
+            "postgresql://username:password@localhost:5432/blog_api_test"
+        )
         self.client = self.app.test_client()
 
         with self.app.app_context():

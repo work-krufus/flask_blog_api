@@ -40,10 +40,20 @@ Create a `.env` file in the root directory of the project and add the following 
 ```
 SECRET_KEY=my_precious
 JWT_SECRET_KEY=my_precious_jwt
-DATABASE_URL=sqlite:///blog.db
-
+DATABASE_URL=POSTGRES_CONNECTION_STRING
+TEST_DATABASE_URL=POSTGRES_CONNECTION_STRING
 ```
 ### 5. Initialize the database
+For creating DB first time go in python terminal, and execute
+
+```
+from sqlalchemy_utils import database_exists, create_database
+engine = create_database(os.environ['DATABASE_URL'])
+engine = create_database(os.environ['TEST_DATABASE_URL'])
+
+```
+Then go to bash and execute
+
 ```
 flask db init 
 flask db migrate 
